@@ -559,33 +559,35 @@
             }
             body.sidebar-hidden #sidebar .sidebar-wrapper .sidebar-menu,
             body.sidebar-hidden .sidebar-wrapper .sidebar-menu {
-                padding: 0 12px !important;
+                padding: 0 16px !important;
             }
+
+            /* COLLAPSED ITEM LINK: SEPARATE ICON-ONLY SQUARE/PILL MENU (ZERO CUTOFF) */
             body.sidebar-hidden #sidebar .sidebar-wrapper .sidebar-link,
-            body.sidebar-hidden .sidebar-wrapper .sidebar-link,
-            body.sidebar-hidden #sidebar .sidebar-wrapper:hover .sidebar-link,
-            body.sidebar-hidden .sidebar-wrapper:hover .sidebar-link {
-                padding-left: 14px !important;
-                padding-right: 14px !important;
-                height: 41px !important;
-                min-height: 41px !important;
-                max-height: 41px !important;
-                justify-content: flex-start !important;
+            body.sidebar-hidden .sidebar-wrapper .sidebar-link {
+                width: 53px !important;
+                min-width: 53px !important;
+                max-width: 53px !important;
+                height: 44px !important;
+                min-height: 44px !important;
+                max-height: 44px !important;
+                padding: 0 !important;
+                margin: 0 auto !important;
+                justify-content: center !important;
+                display: flex !important;
+                align-items: center !important;
+                border-radius: 0.5rem !important;
             }
             body.sidebar-hidden #sidebar .sidebar-wrapper .sidebar-link i,
             body.sidebar-hidden .sidebar-wrapper .sidebar-link i,
-            body.sidebar-hidden #sidebar .sidebar-wrapper:hover .sidebar-link i,
-            body.sidebar-hidden .sidebar-wrapper:hover .sidebar-link i,
             body.sidebar-hidden #sidebar .sidebar-wrapper .sidebar-link svg,
-            body.sidebar-hidden .sidebar-wrapper .sidebar-link svg,
-            body.sidebar-hidden #sidebar .sidebar-wrapper:hover .sidebar-link svg,
-            body.sidebar-hidden .sidebar-wrapper:hover .sidebar-link svg {
+            body.sidebar-hidden .sidebar-wrapper .sidebar-link svg {
                 width: 32px !important;
                 min-width: 32px !important;
                 max-width: 32px !important;
                 height: 32px !important;
                 line-height: 32px !important;
-                margin-right: 0 !important;
+                margin: 0 !important;
                 display: inline-block !important;
                 text-align: center !important;
                 font-size: 1.25rem !important;
@@ -597,9 +599,11 @@
             body.sidebar-hidden .sidebar-wrapper .logo .logo-text {
                 opacity: 0 !important;
                 max-width: 0 !important;
+                width: 0 !important;
                 overflow: hidden !important;
                 white-space: nowrap !important;
                 pointer-events: none !important;
+                display: none !important;
             }
 
             /* EXPAND ON HOVER IN EXACT POSITION WITHOUT JUMPING - MATCHING EMPIRE POS */
@@ -613,7 +617,7 @@
             body.sidebar-hidden #sidebar .sidebar-wrapper:hover .sidebar-header,
             body.sidebar-hidden .sidebar-wrapper:hover .sidebar-header {
                 width: 280px !important;
-                padding: 0.8rem 1rem 0.6rem !important;
+                padding: 0.8rem 1.2rem 0.6rem !important;
                 justify-content: flex-start !important;
             }
             body.sidebar-hidden #sidebar .sidebar-wrapper:hover .sidebar-header .logo,
@@ -623,15 +627,31 @@
                 width: 100% !important;
                 justify-content: flex-start !important;
             }
+            body.sidebar-hidden #sidebar .sidebar-wrapper:hover .sidebar-link,
+            body.sidebar-hidden .sidebar-wrapper:hover .sidebar-link {
+                width: 100% !important;
+                min-width: 100% !important;
+                max-width: 100% !important;
+                padding: 0 14px !important;
+                margin: 0 !important;
+                justify-content: flex-start !important;
+            }
+            body.sidebar-hidden #sidebar .sidebar-wrapper:hover .sidebar-link i,
+            body.sidebar-hidden .sidebar-wrapper:hover .sidebar-link i,
+            body.sidebar-hidden #sidebar .sidebar-wrapper:hover .sidebar-link svg,
+            body.sidebar-hidden .sidebar-wrapper:hover .sidebar-link svg {
+                margin-right: 0 !important;
+            }
             body.sidebar-hidden #sidebar .sidebar-wrapper:hover .sidebar-link span,
             body.sidebar-hidden .sidebar-wrapper:hover .sidebar-link span,
             body.sidebar-hidden #sidebar .sidebar-wrapper:hover .logo .logo-text,
             body.sidebar-hidden .sidebar-wrapper:hover .logo .logo-text {
                 opacity: 1 !important;
                 max-width: 200px !important;
+                width: auto !important;
                 display: block !important;
                 pointer-events: auto !important;
-                margin-left: 10px !important;
+                margin-left: 12px !important;
             }
         }
 
