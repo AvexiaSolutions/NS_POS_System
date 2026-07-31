@@ -536,13 +536,12 @@
                 margin-left: 76px !important;
             }
             body.sidebar-hidden .sidebar-wrapper .sidebar-header {
-                padding: 0.8rem 0.6rem 0.5rem !important;
+                padding: 0.8rem 0.5rem 0.6rem !important;
                 justify-content: center !important;
             }
             body.sidebar-hidden .sidebar-wrapper .sidebar-link,
             body.sidebar-hidden .sidebar-wrapper:hover .sidebar-link {
-                padding-left: 1.25rem !important;
-                padding-right: 1rem !important;
+                padding: 0 0.85rem !important;
                 justify-content: flex-start !important;
                 height: 41px !important;
                 min-height: 41px !important;
