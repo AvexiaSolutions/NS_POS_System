@@ -527,21 +527,21 @@
                 margin-top: auto !important;
             }
 
-            /* COLLAPSED SIDEBAR (ZERO SCROLL, ICONS REMAIN IN PLACE) */
+            /* COLLAPSED SIDEBAR (ZERO SCROLL, ICONS REMAIN IN PLACE - MATCHING EMPIRE POS) */
             body.sidebar-hidden #sidebar .sidebar-wrapper,
             body.sidebar-hidden .sidebar-wrapper {
-                width: 76px !important;
-                min-width: 76px !important;
-                max-width: 76px !important;
+                width: 85px !important;
+                min-width: 85px !important;
+                max-width: 85px !important;
                 overflow: hidden !important;
             }
             body.sidebar-hidden #main {
-                margin-left: 76px !important;
+                margin-left: 85px !important;
             }
             body.sidebar-hidden #sidebar .sidebar-wrapper .sidebar-header,
             body.sidebar-hidden .sidebar-wrapper .sidebar-header {
                 padding: 0.8rem 0 0.6rem !important;
-                width: 76px !important;
+                width: 85px !important;
                 justify-content: center !important;
             }
             body.sidebar-hidden #sidebar .sidebar-wrapper .sidebar-header .logo,
@@ -565,8 +565,8 @@
             body.sidebar-hidden .sidebar-wrapper .sidebar-link,
             body.sidebar-hidden #sidebar .sidebar-wrapper:hover .sidebar-link,
             body.sidebar-hidden .sidebar-wrapper:hover .sidebar-link {
-                padding-left: 12px !important;
-                padding-right: 12px !important;
+                padding-left: 14px !important;
+                padding-right: 14px !important;
                 height: 41px !important;
                 min-height: 41px !important;
                 max-height: 41px !important;
@@ -580,13 +580,14 @@
             body.sidebar-hidden .sidebar-wrapper .sidebar-link svg,
             body.sidebar-hidden #sidebar .sidebar-wrapper:hover .sidebar-link svg,
             body.sidebar-hidden .sidebar-wrapper:hover .sidebar-link svg {
-                width: 28px !important;
-                min-width: 28px !important;
-                max-width: 28px !important;
+                width: 32px !important;
+                min-width: 32px !important;
+                max-width: 32px !important;
+                height: 32px !important;
+                line-height: 32px !important;
                 margin-right: 0 !important;
                 display: inline-block !important;
                 text-align: center !important;
-                line-height: 1 !important;
                 font-size: 1.25rem !important;
                 flex-shrink: 0 !important;
             }
@@ -601,17 +602,17 @@
                 pointer-events: none !important;
             }
 
-            /* EXPAND ON HOVER IN EXACT POSITION WITHOUT JUMPING */
+            /* EXPAND ON HOVER IN EXACT POSITION WITHOUT JUMPING - MATCHING EMPIRE POS */
             body.sidebar-hidden #sidebar .sidebar-wrapper:hover,
             body.sidebar-hidden .sidebar-wrapper:hover {
-                width: 260px !important;
-                min-width: 260px !important;
-                max-width: 260px !important;
-                box-shadow: 10px 0 30px rgba(0, 0, 0, 0.6) !important;
+                width: 280px !important;
+                min-width: 280px !important;
+                max-width: 280px !important;
+                box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.6) !important;
             }
             body.sidebar-hidden #sidebar .sidebar-wrapper:hover .sidebar-header,
             body.sidebar-hidden .sidebar-wrapper:hover .sidebar-header {
-                width: 260px !important;
+                width: 280px !important;
                 padding: 0.8rem 1rem 0.6rem !important;
                 justify-content: flex-start !important;
             }
@@ -627,10 +628,10 @@
             body.sidebar-hidden #sidebar .sidebar-wrapper:hover .logo .logo-text,
             body.sidebar-hidden .sidebar-wrapper:hover .logo .logo-text {
                 opacity: 1 !important;
-                max-width: 180px !important;
+                max-width: 200px !important;
                 display: block !important;
                 pointer-events: auto !important;
-                margin-left: 0.5rem !important;
+                margin-left: 10px !important;
             }
         }
 
