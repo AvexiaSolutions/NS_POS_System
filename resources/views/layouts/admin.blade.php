@@ -374,12 +374,12 @@
 
         /* COMPACT & PREMIUM SIDEBAR HEADER (FITS IN ONE PAGE WITHOUT SCROLLING) */
         .sidebar-wrapper .sidebar-header {
-            padding: 0.6rem 0.85rem 0.35rem !important;
+            padding: 0.8rem 1rem 0.6rem !important;
             border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-            margin-bottom: 0.1rem !important;
-            height: 58px !important;
-            min-height: 58px !important;
-            max-height: 58px !important;
+            margin-bottom: 0.2rem !important;
+            height: 78px !important;
+            min-height: 78px !important;
+            max-height: 78px !important;
             display: flex !important;
             align-items: center !important;
             justify-content: flex-start !important;
@@ -387,9 +387,9 @@
         }
 
         .sidebar-wrapper .sidebar-header .logo img {
-            height: 28px !important;  
+            height: 36px !important;  
             width: auto !important;    
-            max-height: 28px !important; 
+            max-height: 38px !important; 
             object-fit: contain !important;
             filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25));
             flex-shrink: 0 !important;
@@ -411,10 +411,10 @@
         }
 
         .sidebar-header .logo .logo-text {
-            font-size: 0.88rem !important;
+            font-size: 0.95rem !important;
             font-weight: 700 !important;
             margin-top: 0 !important;
-            margin-left: 0.75rem !important;
+            margin-left: 0.8rem !important;
             letter-spacing: 0.02em !important;
             color: #cbd5e1 !important;
             white-space: nowrap !important;
@@ -426,7 +426,7 @@
             color: #f8fafc !important;
         }
 
-        /* COMPACT SIDEBAR MENU ITEMS (FIT SINGLE PAGE NO SCROLL) */
+        /* FULL & BALANCED SIDEBAR MENU ITEMS (LEAVES SMALL GAP AT TOP & BOTTOM) */
         .sidebar-wrapper {
             overflow: hidden !important;
             scrollbar-width: none;
@@ -436,8 +436,8 @@
             width: 0 !important;
         }
         .sidebar-wrapper .sidebar-menu {
-            padding: 0 0.65rem !important;
-            margin-top: 0.1rem !important;
+            padding: 0 0.75rem !important;
+            margin-top: 0.2rem !important;
         }
         .sidebar-wrapper .sidebar-menu .menu {
             margin-top: 0 !important;
@@ -445,17 +445,17 @@
             list-style: none !important;
         }
         .sidebar-wrapper .sidebar-menu .menu .sidebar-item {
-            margin-top: 0.05rem !important;
-            margin-bottom: 0.05rem !important;
+            margin-top: 0.16rem !important;
+            margin-bottom: 0.16rem !important;
         }
         .sidebar-wrapper .sidebar-menu .menu .sidebar-link {
-            padding: 0 0.75rem !important;
-            font-size: 0.84rem !important;
+            padding: 0 1rem !important;
+            font-size: 0.92rem !important;
             font-weight: 600 !important;
-            border-radius: 0.4rem !important;
-            height: 33px !important;
-            min-height: 33px !important;
-            max-height: 33px !important;
+            border-radius: 0.5rem !important;
+            height: 41px !important;
+            min-height: 41px !important;
+            max-height: 41px !important;
             display: flex !important;
             align-items: center !important;
             justify-content: flex-start !important;
@@ -467,10 +467,10 @@
         }
         .sidebar-wrapper .sidebar-menu .menu .sidebar-link i,
         .sidebar-wrapper .sidebar-menu .menu .sidebar-link svg {
-            font-size: 1.05rem !important;
-            margin-right: 0.75rem !important;
-            width: 22px !important;
-            min-width: 22px !important;
+            font-size: 1.15rem !important;
+            margin-right: 0.85rem !important;
+            width: 24px !important;
+            min-width: 24px !important;
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
@@ -507,7 +507,7 @@
         @media (min-width: 1200px) {
             .sidebar-wrapper {
                 transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important; 
-                width: 250px !important;
+                width: 260px !important;
                 overflow: hidden !important;
             }
             
@@ -516,7 +516,7 @@
                 min-height: 100vh;
                 display: flex;
                 flex-direction: column;
-                margin-left: 250px !important;
+                margin-left: 260px !important;
             }
 
             .page-content {
@@ -529,28 +529,32 @@
 
             /* COLLAPSED SIDEBAR (ZERO SCROLL, ICONS REMAIN IN PLACE) */
             body.sidebar-hidden .sidebar-wrapper {
-                width: 68px !important;
+                width: 76px !important;
                 overflow: hidden !important;
             }
             body.sidebar-hidden #main {
-                margin-left: 68px !important;
+                margin-left: 76px !important;
+            }
+            body.sidebar-hidden .sidebar-wrapper .sidebar-header {
+                padding: 0.8rem 0.6rem 0.5rem !important;
+                justify-content: center !important;
             }
             body.sidebar-hidden .sidebar-wrapper .sidebar-link,
             body.sidebar-hidden .sidebar-wrapper:hover .sidebar-link {
-                padding-left: 0.75rem !important;
-                padding-right: 0.75rem !important;
+                padding-left: 1.25rem !important;
+                padding-right: 1rem !important;
                 justify-content: flex-start !important;
-                height: 33px !important;
-                min-height: 33px !important;
-                max-height: 33px !important;
+                height: 41px !important;
+                min-height: 41px !important;
+                max-height: 41px !important;
             }
             body.sidebar-hidden .sidebar-wrapper .sidebar-link i,
             body.sidebar-hidden .sidebar-wrapper:hover .sidebar-link i,
             body.sidebar-hidden .sidebar-wrapper .sidebar-link svg,
             body.sidebar-hidden .sidebar-wrapper:hover .sidebar-link svg {
-                margin-right: 0.75rem !important;
-                width: 22px !important;
-                min-width: 22px !important;
+                margin-right: 0.85rem !important;
+                width: 24px !important;
+                min-width: 24px !important;
                 display: flex !important;
                 align-items: center !important;
                 justify-content: center !important;
@@ -567,7 +571,7 @@
 
             /* EXPAND ON HOVER IN EXACT POSITION WITHOUT JUMPING */
             body.sidebar-hidden .sidebar-wrapper:hover {
-                width: 250px !important;
+                width: 260px !important;
                 box-shadow: 10px 0 30px rgba(0, 0, 0, 0.6) !important;
             }
             body.sidebar-hidden .sidebar-wrapper:hover .sidebar-link span,
@@ -608,7 +612,7 @@
     </style>
 </head>
 
-<body>
+<body class="sidebar-hidden">
     <script src="{{ asset('assets/static/js/initTheme.js') }}"></script>
     
     <div id="app">
@@ -748,10 +752,6 @@
                 <div class="d-flex align-items-center">
                     <a href="#" class="burger-btn d-block d-xl-none me-3">
                         <i class="bi bi-justify fs-3"></i>
-                    </a>
-                    
-                    <a href="#" class="sidebar-toggle-btn text-secondary d-none d-xl-block me-3" onclick="toggleSidebarPC(event)" title="Toggle Sidebar" style="text-decoration: none;">
-                        <i class="bi bi-layout-sidebar fs-4"></i>
                     </a>
                     
                     <h4 class="m-0 d-none d-md-block">@yield('header')</h4>
@@ -944,21 +944,5 @@
     });
     </script>
 
-    <script>
-        function toggleSidebarPC(e) {
-            if(e) e.preventDefault();
-            document.body.classList.toggle('sidebar-hidden');
-            const toggleIcon = document.querySelector('.sidebar-toggle-btn i');
-            if(toggleIcon) {
-                if(document.body.classList.contains('sidebar-hidden')) {
-                    toggleIcon.classList.remove('bi-layout-sidebar');
-                    toggleIcon.classList.add('bi-layout-sidebar-inset');
-                } else {
-                    toggleIcon.classList.remove('bi-layout-sidebar-inset');
-                    toggleIcon.classList.add('bi-layout-sidebar');
-                }
-            }
-        }
-    </script>
 </body>
 </html>
