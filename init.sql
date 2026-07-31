@@ -1,0 +1,4 @@
+CREATE DATABASE IF NOT EXISTS ns_pos_db;
+CREATE USER IF NOT EXISTS 'Avexia'@'localhost' IDENTIFIED BY '@#$Avex8677';
+GRANT ALL PRIVILEGES ON ns_pos_db.* TO 'Avexia'@'localhost';
+FLUSH PRIVILEGES;
