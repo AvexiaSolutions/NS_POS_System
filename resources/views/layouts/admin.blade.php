@@ -16,8 +16,8 @@
 
     @php
         $shopSetting = \Illuminate\Support\Facades\DB::table('shop_settings')->first();
-        $shopName = $shopSetting->shop_name ?? 'NS POS';
-        $shopLogo = $shopSetting->logo ?? null;
+        $shopName = !empty($shopSetting->shop_name) ? $shopSetting->shop_name : 'NS Enterprises';
+        $shopLogo = !empty($shopSetting->logo) ? $shopSetting->logo : null;
 
         $lowStockCount = \App\Models\Product::whereColumn('qty', '<=', 'alert_qty')->count();
         
@@ -372,43 +372,151 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.4);
         }
 
+        /* COMPACT & PREMIUM SIDEBAR HEADER (FITS IN ONE PAGE WITHOUT SCROLLING) */
+        .sidebar-wrapper .sidebar-header {
+            padding: 0.6rem 0.85rem 0.35rem !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            margin-bottom: 0.1rem !important;
+            height: 58px !important;
+            min-height: 58px !important;
+            max-height: 58px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: flex-start !important;
+            overflow: hidden !important;
+        }
+
         .sidebar-wrapper .sidebar-header .logo img {
-            height: 100px !important;  
+            height: 28px !important;  
             width: auto !important;    
-            max-height: 150px !important; 
+            max-height: 28px !important; 
             object-fit: contain !important;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25));
+            flex-shrink: 0 !important;
         }
 
         .sidebar-header .logo {
             display: flex;
-            justify-content: center; 
+            justify-content: flex-start; 
             align-items: center;
             width: 100%;
         }
 
         .sidebar-header .logo a {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             align-items: center;
-            text-align: center;
             text-decoration: none;
+            width: 100%;
         }
-        
-        .pc-show-btn { display: none !important; }
+
+        .sidebar-header .logo .logo-text {
+            font-size: 0.88rem !important;
+            font-weight: 700 !important;
+            margin-top: 0 !important;
+            margin-left: 0.75rem !important;
+            letter-spacing: 0.02em !important;
+            color: #cbd5e1 !important;
+            white-space: nowrap !important;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
+            max-width: 180px !important;
+        }
+        [data-bs-theme="dark"] .sidebar-header .logo .logo-text {
+            color: #f8fafc !important;
+        }
+
+        /* COMPACT SIDEBAR MENU ITEMS (FIT SINGLE PAGE NO SCROLL) */
+        .sidebar-wrapper {
+            overflow: hidden !important;
+            scrollbar-width: none;
+        }
+        .sidebar-wrapper::-webkit-scrollbar {
+            display: none !important;
+            width: 0 !important;
+        }
+        .sidebar-wrapper .sidebar-menu {
+            padding: 0 0.65rem !important;
+            margin-top: 0.1rem !important;
+        }
+        .sidebar-wrapper .sidebar-menu .menu {
+            margin-top: 0 !important;
+            padding-top: 0 !important;
+            list-style: none !important;
+        }
+        .sidebar-wrapper .sidebar-menu .menu .sidebar-item {
+            margin-top: 0.05rem !important;
+            margin-bottom: 0.05rem !important;
+        }
+        .sidebar-wrapper .sidebar-menu .menu .sidebar-link {
+            padding: 0 0.75rem !important;
+            font-size: 0.84rem !important;
+            font-weight: 600 !important;
+            border-radius: 0.4rem !important;
+            height: 33px !important;
+            min-height: 33px !important;
+            max-height: 33px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: flex-start !important;
+            transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease !important;
+            color: #94a3b8 !important;
+            text-decoration: none !important;
+            overflow: hidden !important;
+            white-space: nowrap !important;
+        }
+        .sidebar-wrapper .sidebar-menu .menu .sidebar-link i,
+        .sidebar-wrapper .sidebar-menu .menu .sidebar-link svg {
+            font-size: 1.05rem !important;
+            margin-right: 0.75rem !important;
+            width: 22px !important;
+            min-width: 22px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            flex-shrink: 0 !important;
+        }
+        .sidebar-wrapper .sidebar-menu .menu .sidebar-link span {
+            white-space: nowrap !important;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
+            display: block !important;
+            line-height: 1 !important;
+            transition: opacity 0.2s ease, max-width 0.3s ease !important;
+        }
+
+        /* PREMIUM OBSIDIAN HOVER & ACTIVE STATES (NO BLUE) */
+        [data-bs-theme="dark"] .sidebar-wrapper .sidebar-menu .menu .sidebar-link:hover {
+            color: #f8fafc !important;
+            background-color: rgba(255, 255, 255, 0.07) !important;
+            transform: translateX(3px);
+        }
+        [data-bs-theme="dark"] .sidebar-wrapper .sidebar-menu .menu .sidebar-item.active > .sidebar-link {
+            background: linear-gradient(135deg, #2a2f3a 0%, #1e2229 100%) !important;
+            color: #ffffff !important;
+            border-left: 3px solid #94a3b8 !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35) !important;
+        }
+        [data-bs-theme="light"] .sidebar-wrapper .sidebar-menu .menu .sidebar-item.active > .sidebar-link {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%) !important;
+            color: #ffffff !important;
+            border-left: 3px solid #475569 !important;
+            box-shadow: 0 4px 10px rgba(15, 23, 42, 0.2) !important;
+        }
 
         @media (min-width: 1200px) {
             .sidebar-wrapper {
-                transition: all 0.4s ease-in-out !important; 
-                width: 300px;
-                overflow-x: hidden !important;
+                transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important; 
+                width: 250px !important;
+                overflow: hidden !important;
             }
             
             #main {
-                transition: margin-left 0.4s ease-in-out !important;
+                transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
                 min-height: 100vh;
                 display: flex;
                 flex-direction: column;
-                margin-left: 300px;
+                margin-left: 250px !important;
             }
 
             .page-content {
@@ -418,79 +526,56 @@
             footer {
                 margin-top: auto !important;
             }
-            
+
+            /* COLLAPSED SIDEBAR (ZERO SCROLL, ICONS REMAIN IN PLACE) */
             body.sidebar-hidden .sidebar-wrapper {
-                width: 80px !important; 
-                left: 0 !important;
-            }
-            body.sidebar-hidden .sidebar-wrapper:hover {
-                width: 300px !important;
+                width: 68px !important;
+                overflow: hidden !important;
             }
             body.sidebar-hidden #main {
-                margin-left: 80px !important; 
+                margin-left: 68px !important;
             }
-
-            body.sidebar-hidden .sidebar-wrapper .sidebar-link {
+            body.sidebar-hidden .sidebar-wrapper .sidebar-link,
+            body.sidebar-hidden .sidebar-wrapper:hover .sidebar-link {
+                padding-left: 0.75rem !important;
+                padding-right: 0.75rem !important;
+                justify-content: flex-start !important;
+                height: 33px !important;
+                min-height: 33px !important;
+                max-height: 33px !important;
+            }
+            body.sidebar-hidden .sidebar-wrapper .sidebar-link i,
+            body.sidebar-hidden .sidebar-wrapper:hover .sidebar-link i,
+            body.sidebar-hidden .sidebar-wrapper .sidebar-link svg,
+            body.sidebar-hidden .sidebar-wrapper:hover .sidebar-link svg {
+                margin-right: 0.75rem !important;
+                width: 22px !important;
+                min-width: 22px !important;
                 display: flex !important;
-                justify-content: center !important;
                 align-items: center !important;
-                padding-left: 0 !important;
-                padding-right: 0 !important;
-            }
-            body.sidebar-hidden .sidebar-wrapper .sidebar-link i {
-                margin-right: 0 !important;
-                font-size: 1.5rem !important;
+                justify-content: center !important;
+                flex-shrink: 0 !important;
             }
             body.sidebar-hidden .sidebar-wrapper .sidebar-link span,
-            body.sidebar-hidden .sidebar-wrapper .sidebar-title,
             body.sidebar-hidden .sidebar-wrapper .logo .logo-text {
-                display: none !important;
+                opacity: 0 !important;
+                max-width: 0 !important;
+                overflow: hidden !important;
+                white-space: nowrap !important;
+                pointer-events: none !important;
             }
-            body.sidebar-hidden .sidebar-wrapper .logo img {
-                height: 50px !important;
-                width: auto !important;
-            }
-            
-            body.sidebar-hidden .sidebar-wrapper:hover .sidebar-link {
-                justify-content: flex-start !important;
-                padding-left: 1.5rem !important;
-                padding-right: 1.5rem !important;
-            }
-            body.sidebar-hidden .sidebar-wrapper:hover .sidebar-link i {
-                margin-right: 1rem !important;
-                font-size: 1.1rem !important;
+
+            /* EXPAND ON HOVER IN EXACT POSITION WITHOUT JUMPING */
+            body.sidebar-hidden .sidebar-wrapper:hover {
+                width: 250px !important;
+                box-shadow: 10px 0 30px rgba(0, 0, 0, 0.6) !important;
             }
             body.sidebar-hidden .sidebar-wrapper:hover .sidebar-link span,
-            body.sidebar-hidden .sidebar-wrapper:hover .sidebar-title,
             body.sidebar-hidden .sidebar-wrapper:hover .logo .logo-text {
+                opacity: 1 !important;
+                max-width: 180px !important;
                 display: block !important;
-            }
-            body.sidebar-hidden .sidebar-wrapper:hover .logo img {
-                height: 100px !important;
-            }
-            
-            body.sidebar-hidden .sidebar-wrapper .has-sub .submenu {
-                display: none !important;
-            }
-            
-            body.sidebar-hidden .sidebar-wrapper:hover .has-sub.active .submenu {
-                display: block !important;
-            }
-
-            body.sidebar-hidden .pc-show-btn { display: block !important; }
-
-            .pc-hide-btn {
-                position: absolute;
-                top: 25px;
-                right: 15px;
-                cursor: pointer;
-                z-index: 10;
-            }
-            body.sidebar-hidden .sidebar-wrapper .pc-hide-btn {
-                display: none !important;
-            }
-            body.sidebar-hidden .sidebar-wrapper:hover .pc-hide-btn {
-                display: block !important;
+                pointer-events: auto !important;
             }
         }
 
@@ -523,7 +608,7 @@
     </style>
 </head>
 
-<body class="sidebar-hidden">
+<body>
     <script src="{{ asset('assets/static/js/initTheme.js') }}"></script>
     
     <div id="app">
@@ -531,28 +616,24 @@
             <div class="sidebar-wrapper active">
                 <div class="sidebar-header position-relative">
                     <div class="d-flex justify-content-between align-items-center w-100">
-                        <div class="logo w-100 text-center mt-3">
-                            <a href="{{ url('/home') }}" class="fs-5 fw-bold text-decoration-none">
-                                @if(file_exists(public_path('favicon.ico')))
-                                    <img src="{{ asset('favicon.ico') }}?v={{ time() }}" alt="" class="logo-img mx-auto" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                                    <i class="bi bi-cpu me-2 fs-1 mb-2 text-primary" style="display:none;"></i>
-                                @elseif($shopLogo)
-                                    <img src="{{ asset('storage/' . $shopLogo) }}" alt="" class="logo-img mx-auto" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                                    <i class="bi bi-cpu me-2 fs-1 mb-2 text-primary" style="display:none;"></i>
+                        <div class="logo w-100 text-center mt-1">
+                            <a href="{{ url('/home') }}" class="text-decoration-none d-flex flex-column align-items-center">
+                                @if(!empty($shopLogo))
+                                    <img src="{{ asset('storage/' . $shopLogo) }}?v={{ time() }}" alt="{{ $shopName }}" class="logo-img mx-auto" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                    <i class="bi bi-shop me-2 fs-3 mb-1 text-secondary" style="display:none;"></i>
+                                @elseif(file_exists(public_path('favicon.ico')))
+                                    <img src="{{ asset('favicon.ico') }}?v={{ time() }}" alt="{{ $shopName }}" class="logo-img mx-auto" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                    <i class="bi bi-shop me-2 fs-3 mb-1 text-secondary" style="display:none;"></i>
                                 @else
-                                    <i class="bi bi-cpu me-2 fs-1 d-block mb-2 text-primary"></i>
+                                    <i class="bi bi-shop me-2 fs-3 d-block mb-1 text-secondary"></i>
                                 @endif
-                                <span class="logo-text mt-2 d-block" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ $shopName }}</span>
+                                <span class="logo-text mt-1 d-block fw-bold" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 220px;" title="{{ $shopName }}">{{ $shopName }}</span>
                             </a>
                         </div>
                         
                         <div class="sidebar-toggler x position-absolute top-0 end-0 mt-3 me-3 d-xl-none">
                             <a href="#" class="sidebar-hide d-block"><i class="bi bi-x bi-middle"></i></a>
                         </div>
-                        
-                        <a href="#" class="pc-hide-btn d-none d-xl-block text-secondary" onclick="toggleSidebarPC(event)">
-                            <i class="bi bi-justify fs-3"></i>
-                        </a>
                     </div>
                 </div>
                 
@@ -646,7 +727,7 @@
                         </li>
                         @endif
 
-                        <li class="sidebar-item mt-2">
+                        <li class="sidebar-item mt-1 pt-1 border-top border-secondary-subtle">
                             <a class="sidebar-link bg-danger text-white" href="{{ route('logout') }}"
                                onclick="event.preventDefault(); document.getElementById('logout-form-sidebar').submit();">
                                 <i class="bi bi-box-arrow-left text-white"></i>
@@ -669,8 +750,8 @@
                         <i class="bi bi-justify fs-3"></i>
                     </a>
                     
-                    <a href="#" class="pc-show-btn text-body me-3" onclick="toggleSidebarPC(event)">
-                        <i class="bi bi-justify fs-3"></i>
+                    <a href="#" class="sidebar-toggle-btn text-secondary d-none d-xl-block me-3" onclick="toggleSidebarPC(event)" title="Toggle Sidebar" style="text-decoration: none;">
+                        <i class="bi bi-layout-sidebar fs-4"></i>
                     </a>
                     
                     <h4 class="m-0 d-none d-md-block">@yield('header')</h4>
@@ -735,8 +816,8 @@
                                     <p class="mb-0 text-sm text-gray-600">{{ ucfirst(Auth::user()->role) }}</p>
                                 </div>
                                 <div class="user-img d-flex align-items-center">
-                                    <div class="avatar avatar-md bg-primary">
-                                        <span class="avatar-content text-white">{{ substr(Auth::user()->name, 0, 1) }}</span>
+                                    <div class="avatar avatar-md rounded-circle d-flex align-items-center justify-content-center shadow-sm" style="width: 40px; height: 40px; background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); border: 2px solid rgba(255, 255, 255, 0.2);">
+                                        <i class="bi bi-person-fill text-white" style="font-size: 1.4rem; line-height: 1;"></i>
                                     </div>
                                 </div>
                             </div>
@@ -775,13 +856,6 @@
             </footer>
         </div>
     </div>
-    
-    <script>
-        function toggleSidebarPC(e) {
-            e.preventDefault();
-            document.body.classList.toggle('sidebar-hidden');
-        }
-    </script>
 
     <script src="{{ asset('assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
     <script src="{{ asset('assets/compiled/js/app.js') }}"></script>
@@ -870,5 +944,21 @@
     });
     </script>
 
+    <script>
+        function toggleSidebarPC(e) {
+            if(e) e.preventDefault();
+            document.body.classList.toggle('sidebar-hidden');
+            const toggleIcon = document.querySelector('.sidebar-toggle-btn i');
+            if(toggleIcon) {
+                if(document.body.classList.contains('sidebar-hidden')) {
+                    toggleIcon.classList.remove('bi-layout-sidebar');
+                    toggleIcon.classList.add('bi-layout-sidebar-inset');
+                } else {
+                    toggleIcon.classList.remove('bi-layout-sidebar-inset');
+                    toggleIcon.classList.add('bi-layout-sidebar');
+                }
+            }
+        }
+    </script>
 </body>
 </html>
